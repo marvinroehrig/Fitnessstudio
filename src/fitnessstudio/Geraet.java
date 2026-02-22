@@ -99,9 +99,10 @@ public class Geraet {
     }
 
     /**
-     * Gibt eine String-Repräsentation des Geräts zurück.
-     * 
-     * @return String mit Geräteinformationen
+     * Prüft Gleichheit anhand der Geräte-ID.
+     *
+     * @param obj das zu vergleichende Objekt
+     * @return true, wenn beide Geräte die gleiche Geräte-ID haben, sonst false
      */
     @Override
     public boolean equals(Object obj) {
@@ -117,11 +118,21 @@ public class Geraet {
         return Objects.equals(geraeteId, other.geraeteId);
     }
 
+    /**
+     * Liefert einen Hash-Wert basierend auf der Geräte-ID.
+     *
+     * @return Hash-Code für die Verwendung in Hash-basierten Strukturen
+     */
     @Override
     public int hashCode() {
         return Objects.hash(geraeteId);
     }
 
+    /**
+     * Gibt eine String-Repräsentation des Geräts zurück.
+     *
+     * @return String mit Geräteinformationen
+     */
     @Override
     public String toString() {
         return "Geraet [ID: " + geraeteId + ", Name: " + geraeteName + ", Kategorie: " + kategorie + "]";

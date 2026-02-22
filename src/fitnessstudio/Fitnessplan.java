@@ -63,9 +63,9 @@ public class Fitnessplan {
     }
 
     /**
-     * Fügt eine Übung zum Plan hinzu.
-     * 
-     * @param uebung Die hinzuzufügende Übung
+     * Fügt eine Übung zum Plan hinzu. Null-Werte werden ignoriert.
+     *
+     * @param uebung Die hinzuzufügende Übung (null wird nicht hinzugefügt)
      */
     public void addUebung(Uebung uebung) {
         if (uebung != null) {

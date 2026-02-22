@@ -138,13 +138,11 @@ public class Mitglied {
 
     /**
      * Fügt einen Fitnessplan zu den aktiven Plänen hinzu.
-     * Validiert dabei:
-     * - Das Mitglied darf nicht gesperrt sein
-     * - Maximal 3 aktive Pläne sind erlaubt
-     * 
-     * @param plan Der hinzuzufügende Fitnessplan
-     * @return true, wenn erfolgreich hinzugefügt, sonst false
-     * @throws IllegalStateException wenn das Mitglied gesperrt ist oder bereits 3 aktive Pläne hat
+     * Validiert dabei: Mitglied darf nicht gesperrt sein, maximal {@value #MAX_AKTIVE_PLAENE} aktive Pläne.
+     *
+     * @param plan Der hinzuzufügende Fitnessplan (null wird ignoriert, Rückgabe false)
+     * @return true, wenn erfolgreich hinzugefügt, sonst false bei null
+     * @throws IllegalStateException wenn das Mitglied gesperrt ist oder bereits {@value #MAX_AKTIVE_PLAENE} aktive Pläne hat
      */
     public boolean addFitnessplan(Fitnessplan plan) throws IllegalStateException {
         if (plan == null) {

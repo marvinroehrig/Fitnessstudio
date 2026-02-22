@@ -14,7 +14,7 @@ import java.util.List;
  * @version 1.0
  */
 public class App {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         System.out.println("=== Fitnessstudio-System Test ===\n");
 
         // Erstelle Fitnessstudio-Instanz

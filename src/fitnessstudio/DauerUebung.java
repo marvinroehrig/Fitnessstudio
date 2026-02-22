@@ -15,12 +15,13 @@ public class DauerUebung extends Uebung {
 
     /**
      * Konstruktor für eine DauerUebung.
-     * 
-     * @param name Name der Übung
-     * @param beschreibung Kurze Beschreibung der Übung
-     * @param saetze Anzahl der Sätze
-     * @param geraet Das benötigte Gerät
-     * @param trainingsdauerMin Trainingsdauer in Minuten
+     *
+     * @param name              Name der Übung
+     * @param beschreibung     Kurze Beschreibung der Übung
+     * @param saetze            Anzahl der Sätze
+     * @param geraet            Das benötigte Gerät
+     * @param trainingsdauerMin Trainingsdauer in Minuten (mindestens 1)
+     * @throws IllegalArgumentException falls die Trainingsdauer kleiner als 1 ist (oder Basis-Parameter ungültig)
      */
     public DauerUebung(String name, String beschreibung, int saetze, Geraet geraet, int trainingsdauerMin) {
         super(name, beschreibung, saetze, geraet);

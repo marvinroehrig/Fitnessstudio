@@ -15,12 +15,13 @@ public class WiederholungsUebung extends Uebung {
 
     /**
      * Konstruktor für eine WiederholungsUebung.
-     * 
-     * @param name Name der Übung
-     * @param beschreibung Kurze Beschreibung der Übung
-     * @param saetze Anzahl der Sätze
-     * @param geraet Das benötigte Gerät
-     * @param wiederholungen Anzahl der Wiederholungen pro Satz
+     *
+     * @param name           Name der Übung
+     * @param beschreibung  Kurze Beschreibung der Übung
+     * @param saetze         Anzahl der Sätze
+     * @param geraet         Das benötigte Gerät
+     * @param wiederholungen Anzahl der Wiederholungen pro Satz (mindestens 1)
+     * @throws IllegalArgumentException falls wiederholungen kleiner als 1 ist (oder Basis-Parameter ungültig)
      */
     public WiederholungsUebung(String name, String beschreibung, int saetze, Geraet geraet, int wiederholungen) {
         super(name, beschreibung, saetze, geraet);

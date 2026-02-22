@@ -136,6 +136,7 @@ public abstract class Uebung {
      */
     @Override
     public String toString() {
-        return name + " - " + beschreibung + " (" + saetze + " Sätze, " + getUebungsDetails() + ")";
+        String saetzeStr = (saetze == 1) ? "1 Satz" : saetze + " Sätze";
+        return name + " - " + beschreibung + " (" + saetzeStr + ", " + getUebungsDetails() + ")";
     }
 }

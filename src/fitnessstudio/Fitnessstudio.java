@@ -134,7 +134,7 @@ public class Fitnessstudio {
      * @param mitglied Das Mitglied, dem der Plan zugewiesen werden soll (muss im Studio registriert sein)
      * @param plan     Der zuzuweisende Fitnessplan (muss vom Studio erstellt sein)
      * @throws IllegalArgumentException falls mitglied oder plan null ist oder nicht zu diesem Studio gehören
-     * @throws IllegalStateException   falls das Mitglied gesperrt ist oder bereits 3 aktive Pläne hat
+     * @throws IllegalStateException   falls das Mitglied gesperrt ist oder bereits die max. Anzahl aktiver Pläne hat
      */
     public void weisePlanZu(Mitglied mitglied, Fitnessplan plan) {
         if (mitglied == null) {

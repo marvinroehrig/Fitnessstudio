@@ -1,0 +1,25 @@
+# Kompilierte Klassen
+bin/
+out/
+build/
+*.class
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs und temporäre Dateien
+*.log
+*.tmp
+*.swp
+*~

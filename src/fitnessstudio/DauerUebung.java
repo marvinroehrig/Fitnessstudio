@@ -27,6 +27,7 @@ public class DauerUebung extends Uebung {
         if (trainingsdauerMin < 1) {
             throw new IllegalArgumentException("Die Trainingsdauer muss mindestens 1 Minute betragen.");
         }
+        
         this.trainingsdauerMin = trainingsdauerMin;
     }
 

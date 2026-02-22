@@ -24,6 +24,7 @@ public class App {
         // Test 1: 10 Geräte anlegen
         // ============================================
         System.out.println("--- Test 1: 10 Geräte anlegen ---");
+
         Geraet geraet1 = new Geraet("G001", "Laufband", GeraeteKategorie.AUSDAUER);
         Geraet geraet2 = new Geraet("G002", "Beinpresse", GeraeteKategorie.KRAFT);
         Geraet geraet3 = new Geraet("G003", "Rudergerät", GeraeteKategorie.AUSDAUER);
@@ -52,6 +53,7 @@ public class App {
         // Test 2: 4 Mitglieder anlegen
         // ============================================
         System.out.println("--- Test 2: 4 Mitglieder anlegen ---");
+
         Mitglied mitglied1 = new Mitglied("M001", "Max Mustermann", "Musterstraße 1, 12345 Musterstadt");
         Mitglied mitglied2 = new Mitglied("M002", "Anna Schmidt", "Beispielweg 5, 54321 Beispielstadt");
         Mitglied mitglied3 = new Mitglied("M003", "Peter Müller", "Teststraße 10, 67890 Teststadt");
@@ -118,6 +120,7 @@ public class App {
         ausdauerUebungen.add(new DauerUebung("Radfahren", "Beinausdauer trainieren", 1, geraet7, 25));
 
         Fitnessplan ausdauerPlan = null;
+
         try {
             ausdauerPlan = fitnessstudio.erstelleFitnessplan("Ausdauerplan", ausdauerUebungen);
             System.out.println("Ausdauerplan erfolgreich erstellt.");
@@ -131,6 +134,7 @@ public class App {
         // Test 4: Gültigen Plan erfolgreich zuweisen
         // ============================================
         System.out.println("--- Test 4: Gültigen Plan erfolgreich zuweisen ---");
+
         try {
             fitnessstudio.weisePlanZu(mitglied1, ganzkoerperPlan);
             System.out.println("Ganzkörperplan wurde " + mitglied1.getName() + " erfolgreich zugewiesen.");
@@ -175,6 +179,7 @@ public class App {
         } catch (IllegalArgumentException | IllegalStateException e) {
             System.out.println("Korrekt abgelehnt: " + e.getMessage());
         }
+        
         System.out.println();
 
         // ============================================
@@ -199,6 +204,7 @@ public class App {
         } catch (IllegalArgumentException | IllegalStateException e) {
             System.out.println("Korrekt abgelehnt: " + e.getMessage());
         }
+
         System.out.println();
 
         // ============================================

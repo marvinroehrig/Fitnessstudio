@@ -30,15 +30,19 @@ public abstract class Uebung {
         if (name == null || name.trim().isEmpty()) {
             throw new IllegalArgumentException("Der Übungsname darf nicht null oder leer sein.");
         }
+
         if (beschreibung == null || beschreibung.trim().isEmpty()) {
             throw new IllegalArgumentException("Die Beschreibung darf nicht null oder leer sein.");
         }
+        
         if (saetze < 1) {
             throw new IllegalArgumentException("Die Anzahl der Sätze muss mindestens 1 sein.");
         }
+        
         if (geraet == null) {
             throw new IllegalArgumentException("Das Gerät darf nicht null sein.");
         }
+        
         this.name = name.trim();
         this.beschreibung = beschreibung.trim();
         this.saetze = saetze;

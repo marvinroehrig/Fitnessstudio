@@ -41,9 +41,11 @@ public class Fitnessstudio {
         if (geraet == null) {
             throw new IllegalArgumentException("Das Gerät darf nicht null sein.");
         }
+        
         if (getGeraetById(geraet.getGeraeteId()) != null) {
             throw new IllegalArgumentException("Ein Gerät mit der ID " + geraet.getGeraeteId() + " existiert bereits.");
         }
+        
         geraete.add(geraet);
     }
 
@@ -57,9 +59,11 @@ public class Fitnessstudio {
         if (mitglied == null) {
             throw new IllegalArgumentException("Das Mitglied darf nicht null sein.");
         }
+        
         if (getMitgliedByNummer(mitglied.getMitgliedsnummer()) != null) {
             throw new IllegalArgumentException("Ein Mitglied mit der Nr. " + mitglied.getMitgliedsnummer() + " existiert bereits.");
         }
+        
         mitglieder.add(mitglied);
     }
 
@@ -136,13 +140,16 @@ public class Fitnessstudio {
         if (mitglied == null) {
             throw new IllegalArgumentException("Das Mitglied darf nicht null sein.");
         }
+        
         if (plan == null) {
             throw new IllegalArgumentException("Der Fitnessplan darf nicht null sein.");
         }
+        
         if (!mitglieder.contains(mitglied)) {
             throw new IllegalArgumentException("Das Mitglied " + mitglied.getName() + " (Nr. " + mitglied.getMitgliedsnummer() +
                     ") ist nicht in diesem Fitnessstudio registriert.");
         }
+        
         if (!plaene.contains(plan)) {
             throw new IllegalArgumentException("Der Fitnessplan \"" + plan.getName() + "\" gehört nicht zu diesem Fitnessstudio.");
         }

@@ -39,12 +39,15 @@ public class Mitglied {
         if (mitgliedsnummer == null || mitgliedsnummer.trim().isEmpty()) {
             throw new IllegalArgumentException("Die Mitgliedsnummer darf nicht null oder leer sein.");
         }
+
         if (name == null || name.trim().isEmpty()) {
             throw new IllegalArgumentException("Der Name darf nicht null oder leer sein.");
         }
+
         if (adresse == null) {
             throw new IllegalArgumentException("Die Adresse darf nicht null sein.");
         }
+        
         this.mitgliedsnummer = mitgliedsnummer.trim();
         this.name = name.trim();
         this.adresse = adresse;
@@ -166,27 +169,40 @@ public class Mitglied {
     }
 
     /**
-     * Gibt eine String-Repräsentation des Mitglieds zurück.
-     * 
-     * @return String mit Mitgliedsinformationen
+     * Prüft Gleichheit anhand der Mitgliedsnummer.
+     *
+     * @param obj das zu vergleichende Objekt
+     * @return true, wenn beide Mitglieder die gleiche Mitgliedsnummer haben, sonst false
      */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
+
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
+
         Mitglied other = (Mitglied) obj;
         return Objects.equals(mitgliedsnummer, other.mitgliedsnummer);
     }
 
+    /**
+     * Liefert einen Hash-Wert basierend auf der Mitgliedsnummer.
+     *
+     * @return Hash-Code für die Verwendung in Hash-basierten Strukturen
+     */
     @Override
     public int hashCode() {
         return Objects.hash(mitgliedsnummer);
     }
 
+    /**
+     * Gibt eine String-Repräsentation des Mitglieds zurück.
+     *
+     * @return String mit Mitgliedsinformationen
+     */
     @Override
     public String toString() {
         return "Mitglied [Nr: " + mitgliedsnummer + ", Name: " + name + ", Adresse: " + adresse +

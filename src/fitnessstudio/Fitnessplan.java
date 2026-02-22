@@ -30,6 +30,7 @@ public class Fitnessplan {
         if (name == null || name.trim().isEmpty()) {
             throw new IllegalArgumentException("Der Planname darf nicht null oder leer sein.");
         }
+        
         this.name = name.trim();
         this.uebungen = new ArrayList<>();
     }

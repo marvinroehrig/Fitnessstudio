@@ -30,12 +30,15 @@ public class Geraet {
         if (geraeteId == null || geraeteId.trim().isEmpty()) {
             throw new IllegalArgumentException("Die Geräte-ID darf nicht null oder leer sein.");
         }
+
         if (geraeteName == null || geraeteName.trim().isEmpty()) {
             throw new IllegalArgumentException("Der Gerätename darf nicht null oder leer sein.");
         }
+
         if (kategorie == null) {
             throw new IllegalArgumentException("Die Kategorie darf nicht null sein.");
         }
+        
         this.geraeteId = geraeteId.trim();
         this.geraeteName = geraeteName.trim();
         this.kategorie = kategorie;
@@ -105,9 +108,11 @@ public class Geraet {
         if (this == obj) {
             return true;
         }
+
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
+
         Geraet other = (Geraet) obj;
         return Objects.equals(geraeteId, other.geraeteId);
     }

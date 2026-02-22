@@ -27,6 +27,7 @@ public class WiederholungsUebung extends Uebung {
         if (wiederholungen < 1) {
             throw new IllegalArgumentException("Die Anzahl der Wiederholungen muss mindestens 1 sein.");
         }
+        
         this.wiederholungen = wiederholungen;
     }
 

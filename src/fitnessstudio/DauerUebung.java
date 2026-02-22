@@ -3,7 +3,7 @@ package fitnessstudio;
 /**
  * Klasse für Übungen, die durch eine Trainingsdauer charakterisiert werden.
  * 
- * @author Fitnessstudio-System
+ * @author Evelyn Bukaev, Marvin Röhrig, Marvin Oberthür, Sören Hirschfeld & Simon Hanke
  * @version 1.0
  */
 public class DauerUebung extends Uebung {
@@ -20,6 +20,9 @@ public class DauerUebung extends Uebung {
      */
     public DauerUebung(String name, String beschreibung, int saetze, Geraet geraet, int trainingsdauerMin) {
         super(name, beschreibung, saetze, geraet);
+        if (trainingsdauerMin < 1) {
+            throw new IllegalArgumentException("Die Trainingsdauer muss mindestens 1 Minute betragen.");
+        }
         this.trainingsdauerMin = trainingsdauerMin;
     }
 

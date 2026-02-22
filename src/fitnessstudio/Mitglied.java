@@ -1,33 +1,48 @@
 package fitnessstudio;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Klasse zur Repräsentation eines Fitnessstudio-Mitglieds.
- * Ein Mitglied kann maximal 3 aktive Fitnesspläne gleichzeitig besitzen.
+ * Ein Mitglied kann maximal {@value #MAX_AKTIVE_PLAENE} aktive Fitnesspläne gleichzeitig besitzen.
  * Gesperrte Mitglieder dürfen keine neuen Pläne erhalten.
- * 
- * @author Fitnessstudio-System
+ *
+ * @author Evelyn Bukaev, Marvin Röhrig, Marvin Oberthür, Sören Hirschfeld & Simon Hanke
  * @version 1.0
  */
 public class Mitglied {
+    /** Maximale Anzahl aktiver Fitnesspläne pro Mitglied. */
+    public static final int MAX_AKTIVE_PLAENE = 3;
+
     private String mitgliedsnummer;
     private String name;
     private String adresse;
     private boolean gesperrt;
-    private List<Fitnessplan> aktivePlaene;
+    private final List<Fitnessplan> aktivePlaene;
 
     /**
      * Konstruktor für ein Mitglied.
-     * 
-     * @param mitgliedsnummer Eindeutige Mitgliedsnummer
-     * @param name Name des Mitglieds
-     * @param adresse Adresse des Mitglieds
+     *
+     * @param mitgliedsnummer Eindeutige Mitgliedsnummer (darf nicht null oder leer sein)
+     * @param name            Name des Mitglieds (darf nicht null oder leer sein)
+     * @param adresse         Adresse des Mitglieds (darf nicht null sein)
+     * @throws IllegalArgumentException falls ein Parameter ungültig ist
      */
     public Mitglied(String mitgliedsnummer, String name, String adresse) {
-        this.mitgliedsnummer = mitgliedsnummer;
-        this.name = name;
+        if (mitgliedsnummer == null || mitgliedsnummer.trim().isEmpty()) {
+            throw new IllegalArgumentException("Die Mitgliedsnummer darf nicht null oder leer sein.");
+        }
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Der Name darf nicht null oder leer sein.");
+        }
+        if (adresse == null) {
+            throw new IllegalArgumentException("Die Adresse darf nicht null sein.");
+        }
+        this.mitgliedsnummer = mitgliedsnummer.trim();
+        this.name = name.trim();
         this.adresse = adresse;
         this.gesperrt = false;
         this.aktivePlaene = new ArrayList<>();
@@ -106,12 +121,12 @@ public class Mitglied {
     }
 
     /**
-     * Gibt die Liste der aktiven Fitnesspläne zurück.
-     * 
-     * @return Liste der aktiven Pläne (defensive Kopie)
+     * Gibt eine unveränderliche Liste der aktiven Fitnesspläne zurück.
+     *
+     * @return unveränderliche Liste der aktiven Pläne
      */
     public List<Fitnessplan> getAktivePlaene() {
-        return new ArrayList<>(aktivePlaene); // Defensive Kopie
+        return Collections.unmodifiableList(new ArrayList<>(aktivePlaene));
     }
 
     /**
@@ -135,15 +150,14 @@ public class Mitglied {
                     ") ist gesperrt und kann keine neuen Fitnesspläne erhalten.");
         }
 
-        // Prüfe, ob bereits 3 aktive Pläne vorhanden sind
-        if (aktivePlaene.size() >= 3) {
-            throw new IllegalStateException("Fehler: Das Mitglied " + name + " (Nr. " + mitgliedsnummer + 
-                    ") hat bereits 3 aktive Fitnesspläne. Ein weiterer Plan kann nicht zugewiesen werden.");
+        // Prüfe, ob bereits die maximale Anzahl aktiver Pläne vorhanden ist
+        if (aktivePlaene.size() >= MAX_AKTIVE_PLAENE) {
+            throw new IllegalStateException("Fehler: Das Mitglied " + name + " (Nr. " + mitgliedsnummer +
+                    ") hat bereits " + MAX_AKTIVE_PLAENE + " aktive Fitnesspläne. Ein weiterer Plan kann nicht zugewiesen werden.");
         }
 
-        // Füge Plan hinzu und setze ihn auf aktiv
-        plan.setAktiv(true);
         aktivePlaene.add(plan);
+
         return true;
     }
 
@@ -153,8 +167,25 @@ public class Mitglied {
      * @return String mit Mitgliedsinformationen
      */
     @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Mitglied other = (Mitglied) obj;
+        return Objects.equals(mitgliedsnummer, other.mitgliedsnummer);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(mitgliedsnummer);
+    }
+
+    @Override
     public String toString() {
-        return "Mitglied [Nr: " + mitgliedsnummer + ", Name: " + name + ", Adresse: " + adresse + 
+        return "Mitglied [Nr: " + mitgliedsnummer + ", Name: " + name + ", Adresse: " + adresse +
                 ", Gesperrt: " + gesperrt + ", Aktive Pläne: " + aktivePlaene.size() + "]";
     }
 }

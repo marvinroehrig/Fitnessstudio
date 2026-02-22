@@ -6,7 +6,7 @@ import java.util.List;
  * Hauptklasse für das Fitnessstudio-System.
  * Implementiert alle Test-Szenarien aus der Aufgabenstellung.
  * 
- * @author Fitnessstudio-System
+ * @author Evelyn Bukaev, Marvin Röhrig, Marvin Oberthür, Sören Hirschfeld & Simon Hanke
  * @version 1.0
  */
 public class App {
@@ -31,16 +31,16 @@ public class App {
         Geraet geraet9 = new Geraet("G009", "Kettlebell", GeraeteKategorie.AUSDAUER);
         Geraet geraet10 = new Geraet("G010", "Faszienrolle", GeraeteKategorie.AUSDAUER);
 
-        fitnessstudio.addGeraet(geraet1);
-        fitnessstudio.addGeraet(geraet2);
-        fitnessstudio.addGeraet(geraet3);
-        fitnessstudio.addGeraet(geraet4);
-        fitnessstudio.addGeraet(geraet5);
-        fitnessstudio.addGeraet(geraet6);
-        fitnessstudio.addGeraet(geraet7);
-        fitnessstudio.addGeraet(geraet8);
-        fitnessstudio.addGeraet(geraet9);
-        fitnessstudio.addGeraet(geraet10);
+        fitnessstudio.legeGeraetAn(geraet1);
+        fitnessstudio.legeGeraetAn(geraet2);
+        fitnessstudio.legeGeraetAn(geraet3);
+        fitnessstudio.legeGeraetAn(geraet4);
+        fitnessstudio.legeGeraetAn(geraet5);
+        fitnessstudio.legeGeraetAn(geraet6);
+        fitnessstudio.legeGeraetAn(geraet7);
+        fitnessstudio.legeGeraetAn(geraet8);
+        fitnessstudio.legeGeraetAn(geraet9);
+        fitnessstudio.legeGeraetAn(geraet10);
 
         System.out.println("10 Geräte erfolgreich angelegt.\n");
 
@@ -53,10 +53,10 @@ public class App {
         Mitglied mitglied3 = new Mitglied("M003", "Peter Müller", "Teststraße 10, 67890 Teststadt");
         Mitglied mitglied4 = new Mitglied("M004", "Lisa Weber", "Demosplatz 3, 11111 Demostadt");
 
-        fitnessstudio.addMitglied(mitglied1);
-        fitnessstudio.addMitglied(mitglied2);
-        fitnessstudio.addMitglied(mitglied3);
-        fitnessstudio.addMitglied(mitglied4);
+        fitnessstudio.legeMitgliedAn(mitglied1);
+        fitnessstudio.legeMitgliedAn(mitglied2);
+        fitnessstudio.legeMitgliedAn(mitglied3);
+        fitnessstudio.legeMitgliedAn(mitglied4);
 
         System.out.println("4 Mitglieder erfolgreich angelegt.\n");
 
@@ -74,9 +74,9 @@ public class App {
         Fitnessplan ganzkoerperPlan = null;
         try {
             ganzkoerperPlan = fitnessstudio.erstelleFitnessplan("Ganzkörperplan", ganzkoerperUebungen);
-            System.out.println("✓ Ganzkörperplan erfolgreich erstellt.");
+            System.out.println("Ganzkörperplan erfolgreich erstellt.");
         } catch (IllegalArgumentException e) {
-            System.out.println("✗ Fehler beim Erstellen des Ganzkörperplans: " + e.getMessage());
+            System.out.println("Fehler beim Erstellen des Ganzkörperplans: " + e.getMessage());
         }
 
         // Beintraining
@@ -87,9 +87,9 @@ public class App {
         Fitnessplan beinPlan = null;
         try {
             beinPlan = fitnessstudio.erstelleFitnessplan("Beintraining", beinUebungen);
-            System.out.println("✓ Beintraining erfolgreich erstellt.");
+            System.out.println("Beintraining erfolgreich erstellt.");
         } catch (IllegalArgumentException e) {
-            System.out.println("✗ Fehler beim Erstellen des Beintrainings: " + e.getMessage());
+            System.out.println("Fehler beim Erstellen des Beintrainings: " + e.getMessage());
         }
 
         // Rückenplan
@@ -100,9 +100,9 @@ public class App {
         Fitnessplan rueckenPlan = null;
         try {
             rueckenPlan = fitnessstudio.erstelleFitnessplan("Rückenplan", rueckenUebungen);
-            System.out.println("✓ Rückenplan erfolgreich erstellt.");
+            System.out.println("Rückenplan erfolgreich erstellt.");
         } catch (IllegalArgumentException e) {
-            System.out.println("✗ Fehler beim Erstellen des Rückenplans: " + e.getMessage());
+            System.out.println("Fehler beim Erstellen des Rückenplans: " + e.getMessage());
         }
 
         // Ausdauerplan
@@ -113,9 +113,9 @@ public class App {
         Fitnessplan ausdauerPlan = null;
         try {
             ausdauerPlan = fitnessstudio.erstelleFitnessplan("Ausdauerplan", ausdauerUebungen);
-            System.out.println("✓ Ausdauerplan erfolgreich erstellt.");
+            System.out.println("Ausdauerplan erfolgreich erstellt.");
         } catch (IllegalArgumentException e) {
-            System.out.println("✗ Fehler beim Erstellen des Ausdauerplans: " + e.getMessage());
+            System.out.println("Fehler beim Erstellen des Ausdauerplans: " + e.getMessage());
         }
 
         System.out.println();
@@ -126,10 +126,11 @@ public class App {
         System.out.println("--- Test 4: Gültigen Plan erfolgreich zuweisen ---");
         try {
             fitnessstudio.weisePlanZu(mitglied1, ganzkoerperPlan);
-            System.out.println("✓ Ganzkörperplan wurde " + mitglied1.getName() + " erfolgreich zugewiesen.");
-        } catch (IllegalStateException e) {
-            System.out.println("✗ Fehler: " + e.getMessage());
+            System.out.println("Ganzkörperplan wurde " + mitglied1.getName() + " erfolgreich zugewiesen.");
+        } catch (IllegalArgumentException | IllegalStateException e) {
+            System.out.println("Fehler: " + e.getMessage());
         }
+
         System.out.println();
 
         // ============================================
@@ -144,11 +145,12 @@ public class App {
         ungueltigeUebungen.add(new WiederholungsUebung("Testübung", "Test", 3, nichtVorhandenesGeraet, 10));
 
         try {
-            Fitnessplan ungueltigerPlan = fitnessstudio.erstelleFitnessplan("Ungültiger Plan", ungueltigeUebungen);
-            System.out.println("✗ FEHLER: Ungültiger Plan wurde fälschlicherweise erstellt!");
+            fitnessstudio.erstelleFitnessplan("Ungültiger Plan", ungueltigeUebungen);
+            System.out.println("FEHLER: Ungültiger Plan wurde fälschlicherweise erstellt!");
         } catch (IllegalArgumentException e) {
-            System.out.println("✓ Korrekt abgelehnt: " + e.getMessage());
+            System.out.println("Korrekt abgelehnt: " + e.getMessage());
         }
+
         System.out.println();
 
         // ============================================
@@ -162,9 +164,9 @@ public class App {
 
         try {
             fitnessstudio.weisePlanZu(mitglied2, beinPlan);
-            System.out.println("✗ FEHLER: Plan wurde fälschlicherweise zugewiesen!");
-        } catch (IllegalStateException e) {
-            System.out.println("✓ Korrekt abgelehnt: " + e.getMessage());
+            System.out.println("FEHLER: Plan wurde fälschlicherweise zugewiesen!");
+        } catch (IllegalArgumentException | IllegalStateException e) {
+            System.out.println("Korrekt abgelehnt: " + e.getMessage());
         }
         System.out.println();
 
@@ -176,19 +178,19 @@ public class App {
         // Weise Mitglied 3 drei Pläne zu
         try {
             fitnessstudio.weisePlanZu(mitglied3, ganzkoerperPlan);
-            System.out.println("✓ Plan 1 zugewiesen: Ganzkörperplan");
+            System.out.println("Plan 1 zugewiesen: Ganzkörperplan");
             
             fitnessstudio.weisePlanZu(mitglied3, beinPlan);
-            System.out.println("✓ Plan 2 zugewiesen: Beintraining");
+            System.out.println("Plan 2 zugewiesen: Beintraining");
             
             fitnessstudio.weisePlanZu(mitglied3, rueckenPlan);
-            System.out.println("✓ Plan 3 zugewiesen: Rückenplan");
+            System.out.println("Plan 3 zugewiesen: Rückenplan");
             
             // Versuch, einen 4. Plan zuzuweisen
             fitnessstudio.weisePlanZu(mitglied3, ausdauerPlan);
-            System.out.println("✗ FEHLER: 4. Plan wurde fälschlicherweise zugewiesen!");
-        } catch (IllegalStateException e) {
-            System.out.println("✓ Korrekt abgelehnt: " + e.getMessage());
+            System.out.println("FEHLER: 4. Plan wurde fälschlicherweise zugewiesen!");
+        } catch (IllegalArgumentException | IllegalStateException e) {
+            System.out.println("Korrekt abgelehnt: " + e.getMessage());
         }
         System.out.println();
 

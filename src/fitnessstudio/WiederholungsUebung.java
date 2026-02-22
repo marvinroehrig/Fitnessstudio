@@ -3,7 +3,7 @@ package fitnessstudio;
 /**
  * Klasse für Übungen, die durch Wiederholungen charakterisiert werden.
  * 
- * @author Fitnessstudio-System
+ * @author Evelyn Bukaev, Marvin Röhrig, Marvin Oberthür, Sören Hirschfeld & Simon Hanke
  * @version 1.0
  */
 public class WiederholungsUebung extends Uebung {
@@ -20,6 +20,9 @@ public class WiederholungsUebung extends Uebung {
      */
     public WiederholungsUebung(String name, String beschreibung, int saetze, Geraet geraet, int wiederholungen) {
         super(name, beschreibung, saetze, geraet);
+        if (wiederholungen < 1) {
+            throw new IllegalArgumentException("Die Anzahl der Wiederholungen muss mindestens 1 sein.");
+        }
         this.wiederholungen = wiederholungen;
     }
 

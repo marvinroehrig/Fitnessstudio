@@ -4,7 +4,7 @@ package fitnessstudio;
  * Abstrakte Basisklasse für Übungen im Fitnessstudio.
  * Jede Übung benötigt genau ein Gerät.
  * 
- * @author Fitnessstudio-System
+ * @author Evelyn Bukaev, Marvin Röhrig, Marvin Oberthür, Sören Hirschfeld & Simon Hanke
  * @version 1.0
  */
 public abstract class Uebung {
@@ -15,15 +15,28 @@ public abstract class Uebung {
 
     /**
      * Konstruktor für eine Uebung.
-     * 
-     * @param name Name der Übung
-     * @param beschreibung Kurze Beschreibung der Übung
-     * @param saetze Anzahl der Sätze
-     * @param geraet Das benötigte Gerät
+     *
+     * @param name          Name der Übung (darf nicht null oder leer sein)
+     * @param beschreibung  Kurze Beschreibung der Übung (darf nicht null oder leer sein)
+     * @param saetze        Anzahl der Sätze (muss mindestens 1 sein)
+     * @param geraet        Das benötigte Gerät (darf nicht null sein)
+     * @throws IllegalArgumentException falls ein Parameter ungültig ist
      */
     public Uebung(String name, String beschreibung, int saetze, Geraet geraet) {
-        this.name = name;
-        this.beschreibung = beschreibung;
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Der Übungsname darf nicht null oder leer sein.");
+        }
+        if (beschreibung == null || beschreibung.trim().isEmpty()) {
+            throw new IllegalArgumentException("Die Beschreibung darf nicht null oder leer sein.");
+        }
+        if (saetze < 1) {
+            throw new IllegalArgumentException("Die Anzahl der Sätze muss mindestens 1 sein.");
+        }
+        if (geraet == null) {
+            throw new IllegalArgumentException("Das Gerät darf nicht null sein.");
+        }
+        this.name = name.trim();
+        this.beschreibung = beschreibung.trim();
         this.saetze = saetze;
         this.geraet = geraet;
     }

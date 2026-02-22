@@ -1,28 +1,32 @@
 package fitnessstudio;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
  * Klasse zur Repräsentation eines Fitnessplans.
- * Ein Fitnessplan besteht aus mehreren Übungen.
- * 
- * @author Fitnessstudio-System
+ * Ein Fitnessplan besteht aus mehreren Übungen und kann nur gespeichert werden,
+ * wenn alle verwendeten Geräte im System vorhanden sind.
+ *
+ * @author Evelyn Bukaev, Marvin Röhrig, Marvin Oberthür, Sören Hirschfeld & Simon Hanke
  * @version 1.0
  */
 public class Fitnessplan {
     private String name;
-    private boolean aktiv;
-    private List<Uebung> uebungen;
+    private final List<Uebung> uebungen;
 
     /**
      * Konstruktor für einen Fitnessplan.
-     * 
-     * @param name Name des Fitnessplans
+     *
+     * @param name Name des Fitnessplans (darf nicht null oder leer sein)
+     * @throws IllegalArgumentException falls der Name ungültig ist
      */
     public Fitnessplan(String name) {
-        this.name = name;
-        this.aktiv = false;
+        if (name == null || name.trim().isEmpty()) {
+            throw new IllegalArgumentException("Der Planname darf nicht null oder leer sein.");
+        }
+        this.name = name.trim();
         this.uebungen = new ArrayList<>();
     }
 
@@ -45,30 +49,12 @@ public class Fitnessplan {
     }
 
     /**
-     * Gibt zurück, ob der Plan aktiv ist.
-     * 
-     * @return true, wenn der Plan aktiv ist, sonst false
-     */
-    public boolean isAktiv() {
-        return aktiv;
-    }
-
-    /**
-     * Setzt den Aktivstatus des Plans.
-     * 
-     * @param aktiv Der neue Aktivstatus
-     */
-    public void setAktiv(boolean aktiv) {
-        this.aktiv = aktiv;
-    }
-
-    /**
-     * Gibt die Liste der Übungen zurück.
-     * 
-     * @return Die Liste der Übungen
+     * Gibt eine unveränderliche Liste der Übungen zurück.
+     *
+     * @return unveränderliche Liste der Übungen
      */
     public List<Uebung> getUebungen() {
-        return new ArrayList<>(uebungen); // Defensive Kopie
+        return Collections.unmodifiableList(new ArrayList<>(uebungen));
     }
 
     /**
@@ -102,6 +88,7 @@ public class Fitnessplan {
             }
 
             boolean geraetGefunden = false;
+
             for (Geraet geraet : verfuegbareGeraete) {
                 if (geraet.getGeraeteId().equals(uebung.getGeraet().getGeraeteId())) {
                     geraetGefunden = true;
@@ -125,12 +112,14 @@ public class Fitnessplan {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Fitnessplan: ").append(name);
-        sb.append(" (Status: ").append(aktiv ? "aktiv" : "inaktiv").append(")\n");
+
+        sb.append("Fitnessplan: ").append(name).append("\n");
         sb.append("Übungen:\n");
+
         for (int i = 0; i < uebungen.size(); i++) {
             sb.append("  ").append(i + 1).append(". ").append(uebungen.get(i)).append("\n");
         }
+
         return sb.toString();
     }
 }

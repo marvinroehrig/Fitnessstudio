@@ -6,7 +6,11 @@ import java.util.List;
  * Hauptklasse für das Fitnessstudio-System.
  * Implementiert alle Test-Szenarien aus der Aufgabenstellung.
  * 
- * @author Evelyn Bukaev, Marvin Röhrig, Marvin Oberthür, Sören Hirschfeld & Simon Hanke
+ * @author Evelyn Bukaev
+ * @author Marvin Röhrig
+ * @author Marvin Oberthür
+ * @author Sören Hirschfeld
+ * @author Simon Hanke
  * @version 1.0
  */
 public class App {
@@ -72,6 +76,7 @@ public class App {
         ganzkoerperUebungen.add(new DauerUebung("Laufen", "Ausdauer trainieren", 1, geraet1, 20));
 
         Fitnessplan ganzkoerperPlan = null;
+        
         try {
             ganzkoerperPlan = fitnessstudio.erstelleFitnessplan("Ganzkörperplan", ganzkoerperUebungen);
             System.out.println("Ganzkörperplan erfolgreich erstellt.");
@@ -85,6 +90,7 @@ public class App {
         beinUebungen.add(new WiederholungsUebung("Kniebeugen mit Langhantel", "Beine und Gesäß trainieren", 3, geraet6, 10));
 
         Fitnessplan beinPlan = null;
+
         try {
             beinPlan = fitnessstudio.erstelleFitnessplan("Beintraining", beinUebungen);
             System.out.println("Beintraining erfolgreich erstellt.");
@@ -98,6 +104,7 @@ public class App {
         rueckenUebungen.add(new WiederholungsUebung("Latziehen", "Oberer Rücken", 3, geraet8, 12));
 
         Fitnessplan rueckenPlan = null;
+
         try {
             rueckenPlan = fitnessstudio.erstelleFitnessplan("Rückenplan", rueckenUebungen);
             System.out.println("Rückenplan erfolgreich erstellt.");

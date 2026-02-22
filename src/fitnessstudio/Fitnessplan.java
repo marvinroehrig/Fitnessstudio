@@ -9,7 +9,11 @@ import java.util.List;
  * Ein Fitnessplan besteht aus mehreren Übungen und kann nur gespeichert werden,
  * wenn alle verwendeten Geräte im System vorhanden sind.
  *
- * @author Evelyn Bukaev, Marvin Röhrig, Marvin Oberthür, Sören Hirschfeld & Simon Hanke
+ * @author Evelyn Bukaev
+ * @author Marvin Röhrig
+ * @author Marvin Oberthür
+ * @author Sören Hirschfeld
+ * @author Simon Hanke
  * @version 1.0
  */
 public class Fitnessplan {

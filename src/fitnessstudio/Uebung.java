@@ -4,7 +4,11 @@ package fitnessstudio;
  * Abstrakte Basisklasse für Übungen im Fitnessstudio.
  * Jede Übung benötigt genau ein Gerät.
  * 
- * @author Evelyn Bukaev, Marvin Röhrig, Marvin Oberthür, Sören Hirschfeld & Simon Hanke
+ * @author Evelyn Bukaev
+ * @author Marvin Röhrig
+ * @author Marvin Oberthür
+ * @author Sören Hirschfeld
+ * @author Simon Hanke
  * @version 1.0
  */
 public abstract class Uebung {

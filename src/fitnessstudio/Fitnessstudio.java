@@ -9,7 +9,11 @@ import java.util.List;
  * Verwaltet Geräte, Mitglieder und Fitnesspläne. Nur hier registrierte
  * Mitglieder und Pläne können in Zuweisungen verwendet werden.
  *
- * @author Evelyn Bukaev, Marvin Röhrig, Marvin Oberthür, Sören Hirschfeld & Simon Hanke
+ * @author Evelyn Bukaev
+ * @author Marvin Röhrig
+ * @author Marvin Oberthür
+ * @author Sören Hirschfeld
+ * @author Simon Hanke
  * @version 1.0
  */
 public class Fitnessstudio {

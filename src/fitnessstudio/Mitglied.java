@@ -10,7 +10,11 @@ import java.util.Objects;
  * Ein Mitglied kann maximal {@value #MAX_AKTIVE_PLAENE} aktive Fitnesspläne gleichzeitig besitzen.
  * Gesperrte Mitglieder dürfen keine neuen Pläne erhalten.
  *
- * @author Evelyn Bukaev, Marvin Röhrig, Marvin Oberthür, Sören Hirschfeld & Simon Hanke
+ * @author Evelyn Bukaev
+ * @author Marvin Röhrig
+ * @author Marvin Oberthür
+ * @author Sören Hirschfeld
+ * @author Simon Hanke
  * @version 1.0
  */
 public class Mitglied {

@@ -3,7 +3,11 @@ package fitnessstudio;
 /**
  * Klasse für Übungen, die durch eine Trainingsdauer charakterisiert werden.
  * 
- * @author Evelyn Bukaev, Marvin Röhrig, Marvin Oberthür, Sören Hirschfeld & Simon Hanke
+ * @author Evelyn Bukaev
+ * @author Marvin Röhrig
+ * @author Marvin Oberthür
+ * @author Sören Hirschfeld
+ * @author Simon Hanke
  * @version 1.0
  */
 public class DauerUebung extends Uebung {

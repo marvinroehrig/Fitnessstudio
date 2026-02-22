@@ -6,7 +6,11 @@ import java.util.Objects;
  * Klasse zur Repräsentation eines Fitnessgeräts im System.
  * Geräte werden über ihre eindeutige {@code geraeteId} identifiziert.
  *
- * @author Evelyn Bukaev, Marvin Röhrig, Marvin Oberthür, Sören Hirschfeld & Simon Hanke
+ * @author Evelyn Bukaev
+ * @author Marvin Röhrig
+ * @author Marvin Oberthür
+ * @author Sören Hirschfeld
+ * @author Simon Hanke
  * @version 1.0
  */
 public class Geraet {

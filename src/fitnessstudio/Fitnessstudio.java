@@ -86,14 +86,14 @@ public class Fitnessstudio {
         }
 
         // Erstelle neuen Plan
-        Fitnessplan plan = new Fitnessplan(name);
+        Fitnessplan fitnessplan = new Fitnessplan(name);
 
         for (Uebung uebung : uebungen) {
-            plan.addUebung(uebung);
+            fitnessplan.addUebung(uebung);
         }
 
         // Validiere, ob alle Geräte vorhanden sind
-        if (!plan.istGueltig(geraete)) {
+        if (!fitnessplan.istGueltig(geraete)) {
 
             // Finde fehlende Geräte für Fehlermeldung
             List<String> fehlendeGeraete = new ArrayList<>();
@@ -121,9 +121,9 @@ public class Fitnessstudio {
         }
 
         // Plan ist gültig, füge zur Liste hinzu
-        plaene.add(plan);
+        plaene.add(fitnessplan);
 
-        return plan;
+        return fitnessplan;
     }
 
     /**

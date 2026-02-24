@@ -187,16 +187,6 @@ public class Mitglied {
     }
 
     /**
-     * Liefert einen Hash-Wert basierend auf der Mitgliedsnummer.
-     *
-     * @return Hash-Code für die Verwendung in Hash-basierten Strukturen
-     */
-    @Override
-    public int hashCode() {
-        return Objects.hash(mitgliedsnummer);
-    }
-
-    /**
      * Gibt eine String-Repräsentation des Mitglieds zurück.
      *
      * @return String mit Mitgliedsinformationen

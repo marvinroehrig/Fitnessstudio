@@ -95,15 +95,13 @@ public class Fitnessplan {
             boolean geraetGefunden = false;
 
             for (Geraet geraet : verfuegbareGeraete) {
-                if (geraet.getGeraeteId().equals(uebung.getGeraet().getGeraeteId())) {
+                if (geraet.getGeraeteId().equalsIgnoreCase(uebung.getGeraet().getGeraeteId())) {
                     geraetGefunden = true;
                     break;
                 }
             }
 
-            if (!geraetGefunden) {
-                return false;
-            }
+            return geraetGefunden;
         }
 
         return true;

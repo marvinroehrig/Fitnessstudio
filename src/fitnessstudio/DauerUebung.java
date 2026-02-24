@@ -57,6 +57,6 @@ public class DauerUebung extends Uebung {
      */
     @Override
     public String getUebungsDetails() {
-        return trainingsdauerMin + " Minuten";
+        return trainingsdauerMin == 1 ? "1 Minute" : trainingsdauerMin + " Minuten";
     }
 }

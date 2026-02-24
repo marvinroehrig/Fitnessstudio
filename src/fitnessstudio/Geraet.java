@@ -119,16 +119,6 @@ public class Geraet {
     }
 
     /**
-     * Liefert einen Hash-Wert basierend auf der Geräte-ID.
-     *
-     * @return Hash-Code für die Verwendung in Hash-basierten Strukturen
-     */
-    @Override
-    public int hashCode() {
-        return Objects.hash(geraeteId);
-    }
-
-    /**
      * Gibt eine String-Repräsentation des Geräts zurück.
      *
      * @return String mit Geräteinformationen

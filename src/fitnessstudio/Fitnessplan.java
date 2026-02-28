@@ -101,7 +101,9 @@ public class Fitnessplan {
                 }
             }
 
-            return geraetGefunden;
+            if (!geraetGefunden) {
+                return false;
+            }
         }
 
         return true;
